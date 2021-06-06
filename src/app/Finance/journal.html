@@ -1,0 +1,64 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+
+  <div *ngIf="Lposition!='Manager'" style="margin: 10% 0% 0% 50%;">
+    <h1>This user isn't Manager</h1>
+    <h2 style="margin: 0% 0% 0% 3%;">"It can't see this page"</h2>
+  </div>
+
+  <div *ngIf="Lposition=='Manager'">
+    <h1 style="margin:0% 0% 0% 50%"> Gerneral Journal</h1><br>
+    <div style="margin: 0% 0% 0% 35%;">
+      <input style="width: 50%;" type="date" id="date" name="date" #date required="required">
+      &nbsp;&nbsp;
+      <button type="button" (click)="clickme(date.value)" class="btn btn-outline-primary">SERACH</button>
+    </div>
+    <div class="container">
+      <table class="responsive-table" style="margin:0% 0% 0% 10%">
+
+        <thead>
+          <tr>
+
+            <th scope="col">Date</th>
+            <th scope="col">Account Tiltle and Explanation</th>
+            <th scope="col">Ref no.</th>
+            <th scope="col">Debit</th>
+            <th scope="col">Credit</th>
+
+          </tr>
+        </thead>
+        <!-- <div class=""> -->
+        <tbody >
+          <tr *ngFor="let Item of GeneralNewAll">
+            <td data-title="Date">{{Item.Date}}</td>
+            <td data-title="Account Tiltle and Explanation">{{Item.Account}}</td>
+            <td data-title="Ref no." data-type="currency">{{Item.Ref}}</td>
+            <td data-title="Debit" data-type="currency">{{Item.Debit}}</td>
+            <td data-title="International Gross" data-type="currency">{{Item.Credit}}</td>
+          </tr>
+        
+
+
+        </tbody>
+      <!-- </div> -->
+      </table>
+    </div>
+
+  </div>
+
+
+
+
+</body>
+
+</html>

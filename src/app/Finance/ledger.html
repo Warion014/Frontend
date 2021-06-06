@@ -1,0 +1,103 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div *ngIf="Lposition!='Manager'" style="margin: 10% 0% 0% 50%;">
+    <h1>This user isn't Manager</h1>
+    <h2 style="margin: 0% 0% 0% 3%;">"It can't see this page"</h2>
+  </div>
+
+  <div *ngIf="Lposition=='Manager'">
+    <h1 style="margin:0% 0% 0% 53%"> Gerneral Ledger</h1>
+
+    <form action="/action_page.php" style="margin: 0% 0% 0% 45%;"><br>
+      <select name="stype" id="stype" #stype style="width: 50%;">
+        <option value=""></option>
+        <option value="Cash">Cash</option>
+        <option value="AccountReceivable">AccountReceivable</option>
+        <option value="AccountPayable">AccountPayable</option>
+        <option value="StockDiesel">StockDiesel</option>
+        <option value="StockGasohol95">StockGasohol95</option>
+      </select><br><br>
+      <button type="button" (click)="clickme(stype.value)" class="btn btn-outline-primary"
+        style="margin:0% 0% 0% 20%">SERACH</button>
+      <!-- <input type="Submit" value="Submit" (click)="clickme(stype.value)" style="margin:0% 0% 0% 20%"> -->
+      <br><br>
+    </form>
+
+    <div class="container">
+      <table class="responsive-table" style="margin:0% 0% 0% 10%">
+
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Account Tiltle and Explanation</th>
+            <th scope="col">Debit</th>
+            <th scope="col">Credit</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of LedgerAPNewAll">
+            <td data-title="Date">{{item.DATE}}</td>
+            <td data-title="Account Tiltle and Explanation">{{item.DESCRIPTION}}</td>
+            <td data-title="Debit" data-type="currency">{{item.DEBIT}}</td>
+            <td data-title="Credit" data-type="currency">{{item.CREDIT}}</td>
+            <td data-title="Balance" data-type="currency">{{item.BALANCE}}</td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr *ngFor="let item of LedgerARNewAll">
+            <td data-title="Date">{{item.DATE}}</td>
+            <td data-title="Account Tiltle and Explanation">{{item.DESCRIPTION}}</td>
+            <td data-title="Debit" data-type="currency">{{item.DEBIT}}</td>
+            <td data-title="Credit" data-type="currency">{{item.CREDIT}}</td>
+            <td data-title="Balance" data-type="currency">{{item.BALANCE}}</td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr *ngFor="let item of LedgerCashNewAll">
+            <td data-title="Date">{{item.DATE}}</td>
+            <td data-title="Account Tiltle and Explanation">{{item.DESCRIPTION}}</td>
+            <td data-title="Debit" data-type="currency">{{item.DEBIT}}</td>
+            <td data-title="Credit" data-type="currency">{{item.CREDIT}}</td>
+            <td data-title="Balance" data-type="currency">{{item.BALANCE}}</td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr *ngFor="let item of LedgerStockDieselNewAll">
+            <td data-title="Date">{{item.DATE}}</td>
+            <td data-title="Account Tiltle and Explanation">{{item.DESCRIPTION}}</td>
+            <td data-title="Debit" data-type="currency">{{item.DEBIT}}</td>
+            <td data-title="Credit" data-type="currency">{{item.CREDIT}}</td>
+            <td data-title="Balance" data-type="currency">{{item.BALANCE}}</td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr *ngFor="let item of LedgerStockGasohol95NewAll">
+            <td data-title="Date">{{item.DATE}}</td>
+            <td data-title="Account Tiltle and Explanation">{{item.DESCRIPTION}}</td>
+            <td data-title="Debit" data-type="currency">{{item.DEBIT}}</td>
+            <td data-title="Credit" data-type="currency">{{item.CREDIT}}</td>
+            <td data-title="Balance" data-type="currency">{{item.BALANCE}}</td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

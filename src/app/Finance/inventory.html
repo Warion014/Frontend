@@ -1,0 +1,49 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div *ngIf="Lposition!='Manager'" style="margin: 10% 0% 0% 50%;">
+  <h1>This user isn't Manager</h1>
+  <h2 style="margin: 0% 0% 0% 3%;">"It can't see this page"</h2>
+</div>
+
+<div *ngIf="Lposition=='Manager'">
+  <h1 style="margin:0% 0% 0% 45%;">Inventory Stock Card (Monthly)</h1><br>
+  <h2 style="margin:0% 0% 0% 50%;">Month: March 2019</h2><br>
+
+  <div class="container">
+    <div class="table" style="margin:0% 0% 0% 20%;">
+      <div class="table-header">
+        <div class="header__item"><a id="Patrol Type" class="filter__link" href="#">Patrol Type</a></div>
+        <div class="header__item"><a id="Gasohol 95" class="filter__link filter__link--number" href="#">Gasohol 95</a>
+        </div>
+        <div class="header__item"><a id="Diesel" class="filter__link filter__link--number" href="#">Diesel</a></div>
+
+      </div>
+      <div class="table-content">
+        <div class="table-row">
+          <div class="table-data">Beginning Stock</div>
+          <div class="table-data">{{GASOHOL95_1}}</div>
+          <div class="table-data">{{DIESEL_1}}</div>
+
+        </div>
+        <div class="table-row">
+          <div class="table-data">Purchased</div>
+          <div class="table-data">{{GASOHOL95_2}}</div>
+          <div class="table-data">{{DIESEL_2}}</div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">Sold</div>
+          <div class="table-data">{{GASOHOL95_3}}</div>
+          <div class="table-data">{{DIESEL_3}}</div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">Ending Stock</div>
+          <div class="table-data">{{GASOHOL95_4}}</div>
+          <div class="table-data">{{DIESEL_4}}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>

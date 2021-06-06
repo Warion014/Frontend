@@ -1,0 +1,118 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div *ngIf="Lposition!='Manager'" style="margin: 10% 0% 0% 50%;">
+  <h1>This user isn't Manager</h1>
+  <h2 style="margin: 0% 0% 0% 3%;">"It can't see this page"</h2>
+</div>
+
+<div *ngIf="Lposition=='Manager'">
+  <h1 style="margin:0% 0% 0% 45%;">Monthly Income Statement </h1><br>
+
+  <h2 style="margin:0% 0% 0% 50%;">Month: March 2019</h2><br><br>
+  <div class="container">
+
+    <div class="table" style="margin: 0% 0% 0% 20%;">
+
+      <div class="table-content">
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Sale:</div>
+          <div class="table-data"></div>
+          <div class="table-data"></div>
+        </div>
+        <div class="table-row">
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">- Gasohol 95 </div>
+          <div class="table-data">{{Sale_GAS95}}</div>
+          <div class="table-data"></div>
+
+        </div>
+        <div class="table-row">
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">- Diesel </div>
+          <div class="table-data">{{Sale_Diesel}}</div>
+          <div class="table-data"></div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Total Sale</div>
+          <div class="table-data"></div>
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">{{Total_Sale}}</div>
+        </div>
+
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Less : Cost of Goods Sold </div>
+          <div class="table-data"></div>
+          <div class="table-data"></div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">- Gasohol 95 </div>
+          <div class="table-data">{{COGS_GAS95}}</div>
+          <div class="table-data"></div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">- Diesel </div>
+          <div class="table-data">{{COGS_Diesel}}</div>
+          <div class="table-data"></div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Total COGS</div>
+          <div class="table-data"></div>
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">{{Total_COGS}}</div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Gross Profit</div>
+          <div class="table-data"></div>
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">{{Gross_Profit}}</div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Less:Selling and Administration Expenses</div>
+          <div class="table-data"></div>
+          <div class="table-data"></div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Salary </div>
+          <div class="table-data"></div>
+          <div class="table-data"></div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">Sale Office Staff </div>
+          <div class="table-data">{{Officer_Salary}}</div>
+          <div class="table-data"></div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">Gate Controller </div>
+          <div class="table-data">{{GateC_Salary}}</div>
+          <div class="table-data">{{Total_salary}}</div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Utility Expense</div>
+          <div class="table-data"></div>
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">{{UtilityExpense}}</div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Depreciation</div>
+          <div class="table-data"></div>
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">{{Depreciation}}</div>
+        </div>
+
+        <div class="table-row">
+          <div class="table-data">&nbsp;&nbsp;Net income(loss)</div>
+          <div class="table-data"></div>
+          <div class="table-data" style="margin: 0% 0% 0% 5%;">{{NetIncome}}</div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>

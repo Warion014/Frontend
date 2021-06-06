@@ -1,0 +1,321 @@
+ <app-header></app-header>
+ <app-menu></app-menu>
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+   <!-- Content Header (Page header) -->
+   <div class="content-header">
+     <div class="container-fluid">
+       <div class="row mb-2">
+         <div class="col-sm-6">
+           <h1 class="m-0">Dashboard</h1>
+
+         </div><!-- /.col -->
+
+         <div class="col-sm-6">
+           <ol class="breadcrumb float-sm-right">
+             <form action="/action_page.php" style="margin: 0% 0% 0% 0%;">
+               <!-- <label for="day">Select type</label><br> -->
+               <select name="sday" id="sday" #sday style="width: 80%;">
+                 <option value="1">Day1</option>
+                 <option value="2">Day2</option>
+                 <option value="3">Day3</option>
+                 <option value="4">Day4</option>
+                 <option value="5">Day5</option>
+                 <option value="6">Day6</option>
+                 <option value="7">Day7</option>
+                 <option value="8">Day8</option>
+                 <option value="9">Day9</option>
+                 <option value="10">Day10</option>
+                 <option value="11">Day11</option>
+                 <option value="12">Day12</option>
+                 <option value="13">Day13</option>
+                 <option value="14">Day14</option>
+                 <option value="15">Day15</option>
+                 <option value="16">Day16</option>
+                 <option value="17">Day17</option>
+                 <option value="18">Day18</option>
+                 <option value="19">Day19</option>
+                 <option value="20">Day20</option>
+                 <option value="21">Day21</option>
+                 <option value="22">Day22</option>
+                 <option value="23">Day23</option>
+                 <option value="24">Day24</option>
+                 <option value="25">Day25</option>
+                 <option value="26">Day26</option>
+                 <option value="27">Day27</option>
+                 <option value="28">Day28</option>
+                 <option value="29">Day29</option>
+                 <option value="30">Day30</option>
+                 <option value="31">Day31</option>
+               </select>
+               <input type="Submit" value="Submit" (click)="clickme(sday.value)">
+             </form>
+           </ol>
+         </div><!-- /.col -->
+       </div><!-- /.row -->
+     </div><!-- /.container-fluid -->
+   </div>
+   <!-- /.content-header -->
+
+   <!-- Main content -->
+   <div class="content">
+     <div class="container-fluid">
+       <!-- Small boxes (Stat box) -->
+       <div class="row">
+         <div class="col-lg-3 col-6" style.height="200px">
+           <!-- small box -->
+           <div class="small-box bg-info">
+             <div class="inner">
+
+               <h3>{{DieselValue}}</h3>
+               <p>Diesel (Litre)</p>
+             </div>
+             <div class="icon">
+               <i class="ion ion-egg"></i>
+             </div>
+
+           </div>
+         </div>
+         <!-- ./col -->
+         <div class="col-lg-3 col-6">
+           <!-- small box -->
+           <div class="small-box bg-success">
+             <div class="inner">
+               <h3>{{Gasohol95Value}}<sup style="font-size: 20px"></sup></h3>
+
+               <p>Gasohol95 (Litre)</p>
+             </div>
+             <div class="icon">
+               <i class="ion ion-egg"></i>
+             </div>
+
+           </div>
+         </div>
+         <!-- ./col -->
+         <div class="col-lg-3 col-6">
+           <!-- small box -->
+           <div class="small-box bg-warning">
+             <div class="inner">
+               <h3>{{NumberTruckIn}}</h3>
+
+               <p>Number of truck IN</p>
+             </div>
+             <div class="icon">
+               <i class="fas fa-bus"></i>
+             </div>
+
+           </div>
+         </div>
+         <!-- ./col -->
+         <div class="col-lg-3 col-6">
+           <!-- small box -->
+           <div class="small-box bg-danger">
+             <div class="inner">
+               <h3>{{AvgCycleTime}}</h3>
+
+               <p>AVG cycle time (min.)</p>
+             </div>
+             <div class="icon">
+               <i class="ion ion-stats-bars"></i>
+             </div>
+
+           </div>
+         </div>
+         <!-- ./col -->
+       </div>
+
+
+
+       <!-- Start row1 -->
+       <div class="row">
+         <!-- Graph Frist By Time -->
+         <div class="col-lg-12">
+           <section class="card bg-dark">
+             <div class="card-header border-0">
+               <h3 class="card-title">
+                 <i class="fas fa-th mr-1"></i>
+                 Truck Density by hour
+               </h3>
+             </div>
+
+             <div class="col-lg-12" *ngIf="D23!=null">
+               <canvas height="300" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                 [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                 [chartType]="barChartType">
+               </canvas>
+             </div>
+
+             <!-- /.card-body -->
+             <div class="card-footer bg-transparent">
+               <div class="row">
+
+               </div>
+             </div>
+           </section>
+         </div>
+       </div>
+       <!-- /Graph Frist By Time -->
+       <!-- End row1 -->
+
+
+
+        <div class="row">
+         <!-- Start row2 -->
+         <!-- Graph SCH_Utilization -->
+          <div class="col-lg-6 col-6">
+           <section class="card bg-dark">
+             <div class="card-header border-0">
+               <h3 class="card-title">
+                 <i class="fas fa-th mr-1"></i>
+                 SCH_Utilization
+               </h3>
+
+             </div>
+             <div class="col-lg-12 col-12" *ngIf="UIn!=null">
+
+               <canvas height="412" baseChart [datasets]="lineChartData2" [labels]="lineChartLabels2"
+                 [options]="barChartOptions" [plugins]="lineChartPlugins2" [legend]="lineChartLegend2"
+                 [chartType]="lineChartType2">
+               </canvas>
+             </div>
+             <!-- /.card-body -->
+
+           </section>
+          </div>
+         <!-- /Graph SCH_Utilization -->
+
+         <!-- Graph  -->
+          <div class="col-lg-6 col-6">
+           <!-- WAIT FOR no.resouse fail -->
+           <section class="card bg-dark">
+            <div class="card-header border-0">
+              <h3 class="card-title">
+                <i class="fas fa-th mr-1"></i>
+                Number of resources fail
+              </h3>
+            </div>
+
+            <div class="col-lg-12" *ngIf="FOut!=null">
+              <canvas height="398" baseChart [datasets]="barChartData7" [labels]="barChartLabels7"
+                [options]="barChartOptions" [plugins]="barChartPlugins7" [legend]="barChartLegend7"
+                [chartType]="barChartType7">
+              </canvas>
+            </div>
+
+            <!-- /.card-body -->
+            <div class="card-footer bg-transparent">
+              <div class="row">
+
+              </div>
+            </div>
+          </section>
+           
+          </div>
+        </div>
+
+
+         <!-- End row2-->
+         <!-- start row3 -->
+         <!-- open Queue by station -->
+          <div class="row">
+            <div class="col-lg-6 col-6">
+              <section class="card bg-dark">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="fas fa-th mr-1"></i>
+                  Queue by station
+                </h3>
+              </div>
+              <div class="col-lg-12 " *ngIf="NOut!=null">
+
+                <canvas height="250" baseChart [datasets]="barChartData3" [labels]="barChartLabels3"
+                  [options]="barChartOptions" [plugins]="barChartPlugins3" [legend]="barChartLegend3"
+                  [chartType]="barChartType3">
+                </canvas>
+              </div>
+              </section>
+            </div>
+
+            <div class="col-lg-6 col-6">
+              <section class="card bg-dark">
+                <div class="card-header border-0">
+                  <h3 class="card-title">
+                    <i class="fas fa-th mr-1"></i>
+                    Waiting time by station
+                  </h3>
+                </div>
+                <div class="col-lg-12 " *ngIf="WOut!=null">
+
+                  <canvas height="250" baseChart [datasets]="barChartData4" [labels]="barChartLabels4"
+                    [options]="barChartOptions" [plugins]="barChartPlugins4" [legend]="barChartLegend4"
+                    [chartType]="barChartType4">
+                  </canvas>
+                </div>
+              </section>
+            </div>
+
+
+
+
+
+          </div>
+         <!-- end row3 -->
+
+         <!-- Start row4-->
+         <div class="row">
+
+           <div class="col-lg-6 col-6">
+             <section class="card bg-dark">
+               <div class="card-header border-0">
+                 <h3 class="card-title">
+                   <i class="fas fa-th mr-1"></i>
+                   WIP by station
+                 </h3>
+
+               </div>
+               <div class="col-lg-12 col-12" *ngIf="IOut!=null">
+                 <canvas height="250" baseChart [datasets]="lineChartData5" [labels]="lineChartLabels5"
+                   [options]="barChartOptions" [plugins]="lineChartPlugins5" [legend]="lineChartLegend5"
+                   [chartType]="lineChartType5">
+                 </canvas>
+               </div>
+
+               <!-- /.card-body -->
+               <div class="card-footer bg-transparent">
+                 <div class="row">
+
+                 </div>
+               </div>
+             </section>
+           </div>
+
+           <div class="col-lg-6 col-6">
+             <section class="card bg-dark">
+               <div class="card-header border-0">
+                 <h3 class="card-title">
+                   <i class="fas fa-th mr-1"></i>
+                   current NO. IN BUSY by station
+                 </h3>
+
+               </div>
+               <div class="col-lg-12 col-12" *ngIf="BOut!=null">
+
+                 <canvas height="265" baseChart [datasets]="barChartData6" [labels]="barChartLabels6"
+                   [options]="barChartOptions" [plugins]="barChartPlugins6" [legend]="barChartLegend6"
+                   [chartType]="barChartType6">
+                 </canvas>
+               </div>
+               <!-- /.card-body -->
+
+             </section>
+           </div>
+
+         </div>
+       </div>
+       <!-- /.content -->
+
+
+       
+
+
+     </div>

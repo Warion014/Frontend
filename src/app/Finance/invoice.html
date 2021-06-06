@@ -1,0 +1,63 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div *ngIf="Lposition!='Manager'" style="margin: 10% 0% 0% 50%;">
+  <h1>This user isn't Manager</h1>
+  <h2 style="margin: 0% 0% 0% 3%;">"It can't see this page"</h2>
+</div>
+
+<!-- ใส่ปุ่มsearchเพื่อหาพวก invoice No. -->
+<div *ngIf="Lposition=='Manager'">
+  <h1 style="margin:0% 0% 0% 50%;">Paid Sale Invoice</h1><br><br><br><br>
+  <form class="form-inline waves-light" mdbWavesEffect>
+    <div class="md-form mt-0" style="margin: 0% 0% 0% 50%;">
+      <input class="form-control mr-sm-2" #SPO type="text" placeholder="Search">
+      <br><br>
+      <button type="button" (click)="clickme(SPO.value)" class="btn btn-outline-primary"
+        style="margin:0% 0% 0% 20%">SERACH</button>
+    </div>
+  </form><br>
+
+  <br><br>
+  <h3 style="margin:0% 0% 0% 31%;">
+    <div>Company Name: {{COMPANY_NAME}}</div>
+    <div>Address: {{ADDRESS}}</div>
+  </h3>
+  <h3 style="margin:0% 0% 0% 70%;">
+    <div>Invoice No. : {{INVOICE_NO}}</div>
+    <div>PO No. : {{PO_NO}}</div>
+    <div>Payment No.: {{PAYMENT_NO}}</div>
+    <div>Date : {{DATE}}</div>
+  </h3>
+  <h3 style="margin:0% 0% 0% 31%;">
+    <div>Customer ID: {{CUSTOMER_ID}}</div>
+    <div>Customer: {{CUSTOMER}}</div>
+    <div>Tax Payer ID: {{TAX_PAYER_ID}}</div>
+  </h3>
+
+  <div class="container">
+    <div class="table" style="margin:0% 0% 0% 20%;">
+      <div class="table-header">
+        <div class="header__item"><a id="Item" class="filter__link">Date</a></div>
+        <div class="header__item"><a id="Price/Lite" class="filter__link filter__link--number">Filling Time</a></div>
+        <div class="header__item"><a id="Q'ty(Lite)" class="filter__link filter__link--number">Item</a></div>
+        <div class="header__item"><a id="Amount" class="filter__link filter__link--number">Price/Lite</a></div>
+        <div class="header__item"><a id="Amount" class="filter__link filter__link--number">Q'ty(Lite)</a></div>
+        <div class="header__item"><a id="Amount" class="filter__link filter__link--number">Amount</a></div>
+
+      </div>
+      <div class="table-content">
+        <div class="table-row">
+          <div class="table-data">{{DATE1}}</div>
+          <div class="table-data">{{FILL_TIME_MIN}}</div>
+          <div class="table-data">{{ITEM}}</div>
+          <div class="table-data">{{Price}}</div>
+          <div class="table-data">{{Qty}}</div>
+          <div class="table-data">{{Amount}}</div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>

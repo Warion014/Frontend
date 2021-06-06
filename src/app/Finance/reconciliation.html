@@ -1,0 +1,60 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div *ngIf="Lposition!='Manager'" style="margin: 10% 0% 0% 50%;">
+  <h1>This user isn't Manager</h1>
+  <h2 style="margin: 0% 0% 0% 3%;">"It can't see this page"</h2>
+</div>
+
+<div *ngIf="Lposition=='Manager'">
+  <h1 style="margin:0% 0% 0% 45%;">
+    <p>Reconciliation Sheet (Monthly)</p>
+  </h1>
+  <h2 style="margin:0% 0% 0% 50%;">
+    <p>Month: March 2019</p>
+  </h2>
+
+  <div class="container">
+      <table class="responsive-table" style="margin:0% 0% 0% 10%">
+        <thead>
+          <tr>
+        
+
+        <th scope="col">Date</th>
+        <th scope="col">PO</th>
+        <th scope="col">Payment</th>
+        <th scope="col">Invioce</th>
+        <th scope="col">Shipment</th>
+        <th scope="col">Truck</th>
+        <th scope="col">Patral type</th>
+        <th scope="col">Q'ty</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Agent</th>
+
+        
+          </tr>
+        </thead>
+      
+      
+        
+          <tbody >
+            <tr *ngFor = "let Recon of ReconAll ">
+          <td class="table-data">{{Recon.Date}}</td>
+          <td class="table-data">{{Recon.PO}}</td>
+          <td class="table-data">{{Recon.Payment}}</td>
+          <td class="table-data">{{Recon.Invoice}}</td>
+          <td class="table-data">{{Recon.Shipment}}</td>
+          <td class="table-data">{{Recon.Truck}}</td>
+          <td class="table-data">{{Recon.PetrolType}}</td>
+          <td class="table-data" data-type="currency">{{Recon.Qty}}</td>
+          <td class="table-data" data-type="currency">{{Recon.Amount}}</td>
+          <td class="table-data">{{Recon.Agent}}</td>
+          </tr>
+          </tbody>
+
+       
+      
+    </table>
+  </div>
+
+  </div>
